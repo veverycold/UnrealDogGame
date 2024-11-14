@@ -1,6 +1,5 @@
 // Dog Game. Copyright VeveryCold. All Rights Reserved.
 
-
 #include "Framework/GG_GameMode.h"
 #include "GG_GameMode.h"
 #include "DogGame/Core/Types.h"
@@ -8,7 +7,7 @@
 #include "World/GG_Grid.h"
 #include "Framework/SG_Pawn.h"
 
-void ASG_GameMode::StartPlay() 
+void ASG_GameMode::StartPlay()
 {
     Super::StartPlay();
 

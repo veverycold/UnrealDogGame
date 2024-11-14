@@ -7,34 +7,32 @@
 #include "DogGame/Core/Game.h"
 #include "GG_GameMode.generated.h"
 
-
 /**
- * 
+ *
  */
 class ASG_Grid;
 
 UCLASS()
 class DOGGAME_API ASG_GameMode : public AGameModeBase
 {
-	GENERATED_BODY()
-	
+    GENERATED_BODY()
+
 public:
     virtual void StartPlay() override;
 
 protected:
-	UPROPERTY(EditDefaultsOnly, meta = (ClampMin = "10", ClampMax = "100")) 
-	FUintPoint GridDims{10, 10};
+    UPROPERTY(EditDefaultsOnly, meta = (ClampMin = "10", ClampMax = "100"))
+    FUintPoint GridDims{10, 10};
 
-	UPROPERTY(EditDefaultsOnly, meta = (ClampMin = "10", ClampMax = "100"))
+    UPROPERTY(EditDefaultsOnly, meta = (ClampMin = "10", ClampMax = "100"))
     int32 CellSize{10};
 
-	UPROPERTY(EditDefaultsOnly)
+    UPROPERTY(EditDefaultsOnly)
     TSubclassOf<ASG_Grid> GridVisualClass;
-
 
 private:
     TUniquePtr<Dog::Game> Game;
 
-	UPROPERTY()
+    UPROPERTY()
     ASG_Grid* GridVisual;
 };

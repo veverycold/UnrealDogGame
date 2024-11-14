@@ -5,7 +5,7 @@
 #include "AutomationBlueprintFunctionLibrary.h"
 #include "BufferVisualizationData.h"
 
-namespace LifeExe
+namespace VeveryCold
 {
 namespace Test
 {
@@ -211,6 +211,6 @@ void SpecCloseLevel(UWorld* World)
 }
 
 }  // namespace Test
-}  // namespace LifeExe
+}  // namespace VeveryCold
 
 #endif

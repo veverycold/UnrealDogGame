@@ -1,23 +1,21 @@
 // Dog Game. Copyright VeveryCold. All Rights Reserved.
 
-
 #include "Framework/SG_Pawn.h"
 #include "Camera/CameraComponent.h"
 
 namespace
 {
-    float FOVTan(float FOVDegrees)
-    {
-        return FMath::Tan(FMath::DegreesToRadians(FOVDegrees * 0.5f));
+float FOVTan(float FOVDegrees)
+{
+    return FMath::Tan(FMath::DegreesToRadians(FOVDegrees * 0.5f));
+}
+float VerticalFOV(float HorFOVDegrees, float ViewportAspectHW)
+{
+    // https://en.m.wikipedia.org/wiki/Field_of_view_in_video_games
+    return FMath::RadiansToDegrees(2.0f * FMath::Atan(FMath::Tan(FMath::DegreesToRadians(HorFOVDegrees) * 0.5f) * ViewportAspectHW));
+}
 
-    }
-    float VerticalFOV(float HorFOVDegrees, float ViewportAspectHW)
-    {
-        // https://en.m.wikipedia.org/wiki/Field_of_view_in_video_games
-        return FMath::RadiansToDegrees(2.0f * FMath::Atan(FMath::Tan(FMath::DegreesToRadians(HorFOVDegrees) * 0.5f) * ViewportAspectHW));    
-    }
-
-} // namespace
+}  // namespace
 
 ASG_Pawn::ASG_Pawn()
 {
@@ -42,7 +40,6 @@ void ASG_Pawn::UpdateLocation(const Dog::Dim& InDim, int32 InCellSize, const FTr
     check(GEngine->GameViewport);
     check(GEngine->GameViewport->Viewport);
 
-
     auto* Viewport = GEngine->GameViewport->Viewport;
     Viewport->ViewportResizedEvent.AddUObject(this, &ASG_Pawn::OnViewportResized);
 
@@ -51,7 +48,7 @@ void ASG_Pawn::UpdateLocation(const Dog::Dim& InDim, int32 InCellSize, const FTr
 #endif
 }
 
-void ASG_Pawn::OnViewportResized(FViewport* Viewport, uint32 Val) 
+void ASG_Pawn::OnViewportResized(FViewport* Viewport, uint32 Val)
 {
     if (!Viewport || Viewport->GetSizeXY().Y == 0 || Dim.height == 0) return;
 
@@ -77,4 +74,3 @@ void ASG_Pawn::OnViewportResized(FViewport* Viewport, uint32 Val)
     const FVector NewPawnLocation = GridOrigin.GetLocation() + 0.5f * FVector(WorldHeight, WorldWidth, LocationZ);
     SetActorLocation(NewPawnLocation);
 }
-
