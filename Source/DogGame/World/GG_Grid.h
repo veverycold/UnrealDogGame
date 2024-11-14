@@ -20,6 +20,12 @@ class DOGGAME_API ASG_Grid : public AActor
 public:	
 	ASG_Grid();
     virtual void Tick(float DeltaTime) override;
+
+    /**
+    * Set core model to be observed by the grid world actor
+    * @param Grid  model object
+    * @param Cellsize  world size of the cell
+    */
     void SetModel(const TSharedPtr<Dog::Grid>& Grid, int32 CellSize);
 
 protected:
