@@ -8,7 +8,7 @@
 
 rem Unreal Engine params
 ::set EnginePath_4=C:\Epic Games\UE Binary\UE_4.27
-set EnginePath=C:\Epic Games\UE Binary\UE_5.4
+set EnginePath=D:\EpicGames\UE_5.4
 set VersionSelector=D:\EpicGames\Epic Games\Launcher\Engine\Binaries\Win64\UnrealVersionSelector.exe
 rem Editor path (Note: path for UE4: "..\UE4Editor.exe")
 set EditorPath=%EnginePath%\Engine\Binaries\Win64\UnrealEditor.exe
@@ -25,7 +25,7 @@ set SourceCodePath=%ProjectRoot%\Source
 rem Build params
 set Platform=Win64
 :: Shipping, DebugGame
-set Configuration=Development
+set Configuration=Shipping
 set ArchivePath=%ProjectRoot%\Build
 
 rem Other params
