@@ -5,22 +5,19 @@
 #include "DrawDebugHelpers.h"
 #include "Components/LineBatchComponent.h"
 
-
 DEFINE_LOG_CATEGORY_STATIC(LogWorldGrid, All, All);
 
 ASG_Grid::ASG_Grid()
 {
-	PrimaryActorTick.bCanEverTick = true;
-
+    PrimaryActorTick.bCanEverTick = true;
 }
 
 void ASG_Grid::BeginPlay()
 {
-	Super::BeginPlay();
-	
+    Super::BeginPlay();
 }
 
-void ASG_Grid::SetModel(const TSharedPtr<Dog::Grid>& Grid, int32 InCellSize) 
+void ASG_Grid::SetModel(const TSharedPtr<Dog::Grid>& Grid, int32 InCellSize)
 {
     if (!Grid.IsValid())
     {
@@ -34,11 +31,11 @@ void ASG_Grid::SetModel(const TSharedPtr<Dog::Grid>& Grid, int32 InCellSize)
 
 void ASG_Grid::Tick(float DeltaTime)
 {
-	Super::Tick(DeltaTime);
+    Super::Tick(DeltaTime);
     DrawGrid();
 }
 
-void ASG_Grid::DrawGrid() 
+void ASG_Grid::DrawGrid()
 {
     if (!GetWorld() || !GetWorld()->LineBatcher) return;
     for (int32 i = 0; i < GridDim.height + 1; ++i)
@@ -50,11 +47,8 @@ void ASG_Grid::DrawGrid()
     for (int32 i = 0; i < GridDim.width + 1; ++i)
     {
         const FVector StartLocation = GetActorLocation() + GetActorRightVector() * CellSize * i;
-        // DrawDebugLine(GetWorld(), StartLocation, StartLocation + GetActorForwardVector() * WorldHeight, FColor::Red, false, -1.0f, 0, 2.0f);
+        // DrawDebugLine(GetWorld(), StartLocation, StartLocation + GetActorForwardVector() * WorldHeight, FColor::Red, false, -1.0f,
+        // 0, 2.0f);
         GetWorld()->LineBatcher->DrawLine(StartLocation, StartLocation + GetActorForwardVector() * WorldHeight, FLinearColor::Red, 0, 2.0f);
-
     }
-    
-    
 }
-

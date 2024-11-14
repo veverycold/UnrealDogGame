@@ -6,23 +6,23 @@ DEFINE_LOG_CATEGORY_STATIC(LogGrid, All, All);
 
 using namespace Dog;
 
-Grid::Grid(const Dim& dim) //
+Grid::Grid(const Dim& dim)  //
     : c_dim(Dim{dim.width + 2, dim.height + 2})
 {
     /*
-    * * * * * *
-    * 0 0 0 0 *
-    * 0 0 0 0 *
-    * 0 0 0 0 *
-    * * * * * *
-    */
+     * * * * * *
+     * 0 0 0 0 *
+     * 0 0 0 0 *
+     * 0 0 0 0 *
+     * * * * * *
+     */
 
-    m_cells.Init(CellType::Empty, c_dim.width * c_dim.height); 
+    m_cells.Init(CellType::Empty, c_dim.width * c_dim.height);
     initWalls();
     ptintDebug();
 }
 
-void Grid::initWalls() 
+void Grid::initWalls()
 {
     for (int32 y = 0; y < c_dim.height; ++y)
     {
@@ -33,7 +33,6 @@ void Grid::initWalls()
                 m_cells[posToIndex(x, y)] = CellType::Wall;
             }
         }
-
     }
 }
 

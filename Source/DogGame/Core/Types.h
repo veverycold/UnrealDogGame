@@ -25,4 +25,4 @@ struct Settings
 {
     Dim gridDims;
 };
-} // namespace Dog
+}  // namespace Dog

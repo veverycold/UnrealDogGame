@@ -13,9 +13,9 @@ class Grid;
 class Game
 {
 public:
-    Game(const Settings& settings); 
+    Game(const Settings& settings);
 
-     /**
+    /**
      * Returns the pointer to the grid object
      * @return TSharedPtr<Grid>  pointer to the grid object
      */

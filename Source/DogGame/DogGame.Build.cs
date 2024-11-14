@@ -4,13 +4,13 @@ using UnrealBuildTool;
 
 public class DogGame : ModuleRules
 {
-	public DogGame(ReadOnlyTargetRules Target) : base(Target)
-	{
-		PCHUsage = PCHUsageMode.UseExplicitOrSharedPCHs;
-	
-		PublicDependencyModuleNames.AddRange(new string[] { "Core", "CoreUObject", "Engine", "InputCore", "UMG" });
+    public DogGame(ReadOnlyTargetRules Target) : base(Target)
+    {
+        PCHUsage = PCHUsageMode.UseExplicitOrSharedPCHs;
 
-		PublicIncludePaths.AddRange(new string[] { "DogGame" });
+        PublicDependencyModuleNames.AddRange(new string[] { "Core", "CoreUObject", "Engine", "InputCore", "UMG" });
+
+        PublicIncludePaths.AddRange(new string[] { "DogGame" });
 
         if (Target.Configuration != UnrealTargetConfiguration.Shipping)
         {
