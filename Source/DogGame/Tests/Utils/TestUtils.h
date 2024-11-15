@@ -9,7 +9,7 @@
 #include "Blueprint/WidgetTree.h"
 #include "Blueprint/UserWidget.h"
 
-namespace VeveryCold
+namespace LifeExe
 {
 namespace Test
 {
@@ -146,6 +146,6 @@ PropertyClass GetPropertyValueByName(ObjectClass* Obj, const FString& PropName)
 }
 
 }  // namespace Test
-}  // namespace VeveryCold
+}  // namespace LifeExe
 
 #endif
